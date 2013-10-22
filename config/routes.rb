@@ -55,6 +55,9 @@ Mercadaousp::Application.routes.draw do
     resources :comments
   end
 
+  resources :sales do
+  end
+  
   root :to => 'welcome#index'
 
   # See how all your routes lay out with "rake routes"
