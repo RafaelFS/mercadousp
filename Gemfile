@@ -5,7 +5,7 @@ gem 'rails', '3.2.13'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+gem 'pg'
 
 
 # Gems used only for assets and not required
@@ -39,3 +39,7 @@ gem 'strong_parameters'
 
 # To use debugger
 # gem 'debugger'
+
+gem 'rails_12factor', group: :production
+
+ruby "2.0.0"
