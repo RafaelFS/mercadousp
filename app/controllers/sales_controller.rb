@@ -29,6 +29,20 @@ class SalesController < ApplicationController
   		@sale = Sale.find(params[:id])
 	end
 
+	def edit
+  		@sale = Sale.find(params[:id])
+	end
+
+	def update
+  		@sale = Sale.find(params[:id])
+ 
+  		if @sale.update_attributes(params[:sale].permit(:title, :amount, :contact, :description, :email, :price, :user))
+    		redirect_to @sale
+  		else
+    		render 'edit'
+  		end
+	end
+
 	private
   		def sale_params
     		params.require(:sale).permit(:title, :amount, :contact, :description, :email, :price, :user)
