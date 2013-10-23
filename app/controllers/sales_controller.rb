@@ -15,7 +15,11 @@ class SalesController < ApplicationController
 
 	def compra
 		@sale = Sale.find(params[:id])
+		@sale.debit(1)
+		@sale.save
+  		redirect_to	@sale			
 	end
+
 
 	def index
   		@sales = Sale.all

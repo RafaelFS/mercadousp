@@ -56,7 +56,9 @@ Mercadaousp::Application.routes.draw do
   end
 
   resources :sales do
-    post "compra"
+    member do
+      put "compra"
+    end
   end
 
   root :to => 'welcome#index'
