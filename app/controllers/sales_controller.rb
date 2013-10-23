@@ -20,7 +20,6 @@ class SalesController < ApplicationController
   		redirect_to	@sale			
 	end
 
-
 	def index
   		@sales = Sale.all
 	end
@@ -41,6 +40,13 @@ class SalesController < ApplicationController
   		else
     		render 'edit'
   		end
+	end
+
+	def destroy
+  		@sale = Sale.find(params[:id])
+  		@sale.destroy
+ 
+  		redirect_to sales_path
 	end
 
 	private
