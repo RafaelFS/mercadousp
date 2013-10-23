@@ -13,8 +13,16 @@ class SalesController < ApplicationController
   		end
 	end
 
+	def compra
+		@sale = Sale.find(params[:id])
+	end
+
 	def index
   		@sales = Sale.all
+	end
+
+	def show
+  		@sale = Sale.find(params[:id])
 	end
 
 	private

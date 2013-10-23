@@ -1,0 +1,28 @@
+<p>
+  <h1><strong><%= @sale.title %></strong></h1>
+</p>
+ 
+<p>
+  <%= @sale.description %>
+</p>
+
+<p>
+  <strong>Quantidade disponível:</strong> <%= @sale.amount %>
+</p>
+
+<p>
+  <strong>Vendedor:</strong> <%= @sale.user %>
+</p>
+
+<p>
+  Email: <%= @sale.email %>
+</p>
+
+<p>
+  Contato: <%= @sale.contact %>
+</p>
+
+<%= button_to "Comprar", compra_sales_path, id: @sale.id  %>
+<%= link_to 'Voltar ao índice de anúncios', sales_path %>
+| <%= link_to 'Editar', edit_post_path(@sale) %>
+| <%= link_to 'Deletar', post_path(@sale), method: :delete, data: { confirm: 'Você tem certeza?' } %>
