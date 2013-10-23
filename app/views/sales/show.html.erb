@@ -21,8 +21,14 @@
 <p>
   Contato: <%= @sale.contact %>
 </p>
+<% if @sale.amount > 0 then %> 
+	<%= button_to "Comprar", compra_sale_path, method: :put, amount: @sale.debit(1) %>
+<% else %>
+	<p>
+		<strong>ESGOTADO</strong>
+	</p>
+<% end %>
 
-<%= button_to "Comprar", compra_sale_path, method: :put, amount: @sale.debit(1) %>
 <%= link_to 'Voltar ao índice de anúncios', sales_path %>
 | <%= link_to 'Editar', edit_sale_path(@sale) %>
 | <%= link_to 'Deletar', sale_path(@sale), method: :delete, data: { confirm: 'Você tem certeza?' } %>
