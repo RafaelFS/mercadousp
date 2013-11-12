@@ -42,4 +42,7 @@ gem 'strong_parameters'
 
 gem 'rails_12factor', group: :production
 
+#Final Sprint: added the Devise gem for authentication
+gem 'devise'
+
 ruby "2.0.0"
