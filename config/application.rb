@@ -58,5 +58,8 @@ module Mercadaousp
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    #Secret token to Devise
+    config.secret_key = 'e74883898425a30516370dc4509d559adad2b8cbac7643fc0ce494e53139230408176a9422ab574f5a5ba80a7381d909c2aab44eaad5356dcdb71cde51d9d2c6'
   end
 end
