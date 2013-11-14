@@ -21,7 +21,9 @@ class SalesController < ApplicationController
 		@sale = Sale.find(params[:id])
 		@sale.debit(1)
 		@sale.save
-		SellerMailer.sold_email(@sale).deliver
+		buyer_name = current_user.name
+		buyer_email = current_user.email
+		SellerMailer.sold_email(@sale, buyer_email, buyer_name).deliver
   		redirect_to	@sale			
 	end
 
