@@ -61,5 +61,8 @@ module Mercadaousp
 
     #Secret token to Devise
     config.secret_key = 'e74883898425a30516370dc4509d559adad2b8cbac7643fc0ce494e53139230408176a9422ab574f5a5ba80a7381d909c2aab44eaad5356dcdb71cde51d9d2c6'
+
+    #Changing precompile options to connect to heroku
+    config.assets.initialize_on_precompile = false
   end
 end
