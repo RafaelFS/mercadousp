@@ -1,10 +1,14 @@
 class SalesController < ApplicationController
+	
+	before_filter :authenticate_user!, :except => [:show, :index]
+
 	def new
 		@sale = Sale.new
 	end
 
 	def create
-		@sale = Sale.new(params[:sale].permit(:title, :amount, :contact, :description, :email, :price, :user))
+		@sale = Sale.new(params[:sale].permit(:title, :amount, :contact, :description, :email, :price, :user_id, :user_name))
+		
 
 		if @sale.save
     		redirect_to @sale
@@ -36,7 +40,7 @@ class SalesController < ApplicationController
 	def update
   		@sale = Sale.find(params[:id])
  
-  		if @sale.update_attributes(params[:sale].permit(:title, :amount, :contact, :description, :email, :price, :user))
+  		if @sale.update_attributes(params[:sale].permit(:title, :amount, :contact, :description, :email, :price, :user_id, :user_name))
     		redirect_to @sale
   		else
     		render 'edit'
@@ -52,6 +56,6 @@ class SalesController < ApplicationController
 
 	private
   		def sale_params
-    		params.require(:sale).permit(:title, :amount, :contact, :description, :email, :price, :user)
+    		params.require(:sale).permit(:title, :amount, :contact, :description, :email, :price, :user_id, :user_name)
   		end
 end
