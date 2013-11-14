@@ -11,7 +11,7 @@
 </p>
 
 <p>
-  <strong>Vendedor:</strong> <%= @sale.user_name %>
+  <strong>Vendedor:</strong> <%= @sale.user.name %>
 </p>
 
 <p>
@@ -30,5 +30,7 @@
 <% end %>
 
 <%= link_to 'Voltar ao índice de anúncios', sales_path %>
-| <%= link_to 'Editar', edit_sale_path(@sale) %>
-| <%= link_to 'Deletar', sale_path(@sale), method: :delete, data: { confirm: 'Você tem certeza?' } %>
+<% if user_signed_in? && current_user.id == @sale.user.id%>
+  | <%= link_to 'Editar', edit_sale_path(@sale) %>
+  | <%= link_to 'Deletar', sale_path(@sale), method: :delete, data: { confirm: 'Você tem certeza?' } %>
+<% end %>
