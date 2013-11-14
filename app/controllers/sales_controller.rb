@@ -25,6 +25,10 @@ class SalesController < ApplicationController
   		redirect_to	@sale			
 	end
 
+	def sellerlist
+		@sales = Sale.all
+	end
+
 	def index
   		@sales = Sale.all
 	end

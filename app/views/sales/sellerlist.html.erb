@@ -1,0 +1,29 @@
+<h1>Meus anúncios</h1>
+ <%= link_to 'Nova venda', new_sale_path %>
+<table>
+  <tr>
+    <th>Título</th>
+    <th>Descrição</th>
+    <th>Preço</th>
+    <th>Quantidade</th>
+    
+
+  </tr>
+ 
+  <% @sales.each do |sale| %>
+    <% if user_signed_in? && current_user.id == sale.user_id%>
+      <tr>
+        <td><%= sale.title %></td>
+        <td><%= sale.description %></td>
+        <td><%= sale.price %></td>
+        <td><%= sale.amount %></td>
+        <td><%= link_to 'Detalhes', sale_path(sale) %></td>
+        <% if user_signed_in? && current_user.id == sale.user_id%>
+          <td><%= link_to 'Editar', edit_sale_path(sale) %></td>
+          <td><%= link_to 'Deletar', sale_path(sale),
+                        method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  <% end %>
+</table>

@@ -60,8 +60,11 @@ Mercadaousp::Application.routes.draw do
   resources :sales do
     member do
       put "compra"
+      
     end
   end
+
+  match '/sellerlist' => 'sales#sellerlist', :as => 'sellerlist'
 
   root :to => 'welcome#index'
 
