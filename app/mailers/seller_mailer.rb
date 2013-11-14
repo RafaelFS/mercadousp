@@ -3,6 +3,6 @@ class SellerMailer < ActionMailer::Base
   def sold_email(product)
     @sale = product
     @url  = 'http://example.com/login'
-    mail(to: @sale.email, subject: 'Welcome to My Awesome Site')
+    mail(to: @sale.user.email, subject: 'Um usuário manifestou interesse em sua oferta:' + @sale.title )
   end
 end
