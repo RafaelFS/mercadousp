@@ -10,7 +10,5 @@ class ApplicationController < ActionController::Base
     	devise_parameter_sanitizer.for(:account_update) << :name
 	end
 
-	class User::SessionsController < Devise::SessionsController
-	
-	end
+
 end
