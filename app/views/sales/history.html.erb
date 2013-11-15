@@ -12,7 +12,7 @@
  
   <% @sales.each do |sale| %>
     <% sale.users.each do |user| %>
-      <% if user_signed_in? && current_user.id == sale.owner_id%>
+      <% if user_signed_in? && current_user.id == user.id%>
         <tr>
           <td><%= sale.title %></td>
           <td><%= sale.description %></td>
