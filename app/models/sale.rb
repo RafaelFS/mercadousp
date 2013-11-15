@@ -1,7 +1,7 @@
 class Sale < ActiveRecord::Base
-  attr_accessible :amount, :contact, :description, :email, :price, :title, :user_name, :user_id
+  attr_accessible :amount, :contact, :description, :email, :price, :title, :owner_name, :owner_id
 
-  belongs_to :user
+  has_and_belongs_to_many :users
 
 
   def debit(qtde)

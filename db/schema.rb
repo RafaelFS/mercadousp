@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131114022300) do
+ActiveRecord::Schema.define(:version => 20131115154313) do
 
   create_table "comments", :force => true do |t|
     t.string   "commenter"
@@ -39,9 +39,16 @@ ActiveRecord::Schema.define(:version => 20131114022300) do
     t.string   "contact"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-    t.integer  "user_id"
-    t.string   "user_name"
+    t.integer  "owner_id"
+    t.string   "owner_name"
   end
+
+  create_table "sales_users", :id => false, :force => true do |t|
+    t.integer "sale_id"
+    t.integer "user_id"
+  end
+
+  add_index "sales_users", ["sale_id", "user_id"], :name => "index_sales_users_on_sale_id_and_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

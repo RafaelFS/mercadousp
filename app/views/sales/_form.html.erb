@@ -31,12 +31,12 @@
   </p>
 
   <p>
-    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= f.hidden_field :owner_id, :value => current_user.id %>
   </p>
 
   <p>
     <%= current_user.name %> 
-    <%= f.hidden_field :user_name, :value => current_user.name %>    
+    <%= f.hidden_field :owner_name, :value => current_user.name %>    
   </p>
 
   <p>

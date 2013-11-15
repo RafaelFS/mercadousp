@@ -7,7 +7,7 @@ class SalesController < ApplicationController
 	end
 
 	def create
-		@sale = Sale.new(params[:sale].permit(:title, :amount, :contact, :description, :email, :price, :user_id, :user_name))
+		@sale = Sale.new(params[:sale].permit(:title, :amount, :contact, :description, :email, :price, :owner_id, :owner_name))
 		
 
 		if @sale.save
@@ -20,12 +20,17 @@ class SalesController < ApplicationController
 	def compra
 		@sale = Sale.find(params[:id])
 		@sale.debit(1)
+		@sale.users << current_user
 		@sale.save
 		SellerMailer.sold_email(@sale, current_user.email, current_user.name).deliver
   		redirect_to	@sale			
 	end
 
 	def sellerlist
+		@sales = Sale.all
+	end
+
+	def history
 		@sales = Sale.all
 	end
 
@@ -44,7 +49,7 @@ class SalesController < ApplicationController
 	def update
   		@sale = Sale.find(params[:id])
  
-  		if @sale.update_attributes(params[:sale].permit(:title, :amount, :contact, :description, :email, :price, :user_id, :user_name))
+  		if @sale.update_attributes(params[:sale].permit(:title, :amount, :contact, :description, :email, :price, :owner_id, :owner_name))
     		redirect_to @sale
   		else
     		render 'edit'
@@ -60,6 +65,6 @@ class SalesController < ApplicationController
 
 	private
   		def sale_params
-    		params.require(:sale).permit(:title, :amount, :contact, :description, :email, :price, :user_id, :user_name)
+    		params.require(:sale).permit(:title, :amount, :contact, :description, :email, :price, :owner_id, :owner_name)
   		end
 end

@@ -5,6 +5,6 @@ class SellerMailer < ActionMailer::Base
     @url  = 'http://example.com/login'
     @buyer_email = email
     @buyer_name = name
-    mail(to: @sale.user.email, subject: 'Um usuário manifestou interesse em sua oferta:' + @sale.title )
+    mail(to: @sale.email, subject: 'O usuário' + @buyer_name +'manifestou interesse em sua oferta:' + @sale.title )
   end
 end

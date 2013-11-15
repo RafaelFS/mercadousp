@@ -66,6 +66,8 @@ Mercadaousp::Application.routes.draw do
 
   match '/sellerlist' => 'sales#sellerlist', :as => 'sellerlist'
 
+  match '/history' => 'sales#history', :as => 'history'
+
   root :to => 'welcome#index'
 
   get "signuptest/index"
