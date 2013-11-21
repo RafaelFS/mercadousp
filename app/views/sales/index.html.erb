@@ -11,7 +11,7 @@
     <th>Descrição</th>
     <th>Preço</th>
     <th>Quantidade</th>
-    
+    <th>Opções</th>  
 
   </tr>
 
@@ -22,10 +22,10 @@
       <td><%= sale.description %></td>
       <td><%= sale.price %></td>
       <td><%= sale.amount %></td>
-      <td><%= link_to 'Detalhes', sale_path(sale) %></td>
+      <td><%= link_to 'Detalhes', sale_path(sale) %>
       <% if user_signed_in? && current_user.id == sale.owner_id%>
-        <td><%= link_to 'Editar', edit_sale_path(sale) %></td>
-        <td><%= link_to 'Deletar', sale_path(sale),
+        <%= link_to 'Editar', edit_sale_path(sale) %>
+        <%= link_to 'Deletar', sale_path(sale),
                       method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
       <% end %>
     </tr>
