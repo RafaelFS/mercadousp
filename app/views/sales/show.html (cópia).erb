@@ -1,11 +1,7 @@
-<body bgcolor="#B0C4DE">
-<font size="4" color="#B8860B" face="Segoe Print"><h1 align="center"> Mercadão USP</h1></font>
-
-<p><p><p><p><font size="5" color="#8B795E" face="Segoe Script"><u><h2 align="center"> <%= @sale.title %></h2></u></font></p></p></p></p>
-<p align="center"><%= link_to 'Criar nova venda', new_sale_path %></p>
-<font color="#556B2F" face="Segoe Script">
-<div align="center">
-
+<p>
+  <h1><strong><%= @sale.title %></strong></h1>
+</p>
+ 
 <p>
   <%= @sale.description %>
 </p>
@@ -38,5 +34,3 @@
   | <%= link_to 'Editar', edit_sale_path(@sale) %>
   | <%= link_to 'Deletar', sale_path(@sale), method: :delete, data: { confirm: 'Você tem certeza?' } %>
 <% end %>
-
-</div>
