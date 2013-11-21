@@ -13,15 +13,15 @@
   <!--Added user navbar! -->
 	<div id="user_nav">
  		<% if user_signed_in? %>
-    		Signed in as <%= current_user.email %>. Not you?
-    		<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+    		Logado como <%= current_user.email %>. Não é você?
+    		<%= link_to "Logout", destroy_user_session_path, :method => :delete %>
         <%= link_to 'Editar registro', edit_user_registration_path, :controller => "sales" %>
         <%= link_to 'Meus anúncios', sellerlist_path, :controller => "sales" %>
   		  <%= link_to 'Minhas compras', history_path, :controller => "sales" %>
         <%= link_to 'Lista geral de ofertas', sales_path, :controller => "sales" %>
         <%= link_to 'Criar novo anúncio', new_sale_path, :controller => "sales" %>
       <% else %>
-    		<%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
+    		<%= link_to "Registrar-se", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
   		<% end %>
 	</div>
 
